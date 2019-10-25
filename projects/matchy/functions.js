@@ -23,7 +23,7 @@ var search = function(animals, name)
             }
     }
     return null;
-}
+};
 
 
 //////////////////////////////////////////////////////////////////////
@@ -32,17 +32,15 @@ var search = function(animals, name)
 
 var replace = function(animals, name, replacement)
 {
-    for (var i = 0;i < animals.length; i++)
-    {
-        if (animals[i].name === name) // if the names are equal 
+  for (var i = 0; i < animals.length; i++)
+  {
+        if (animals[i].name === name)
         {
-            animals[i].name = replacement.name;
-            animals[i].species = replacement.species;
-            animals[i].noises = replacement.noises;
-            animals[i].friends = replacement.friends;
+            animals[i] = replacement;
         }
-    }
-}
+  }
+ 
+};
 
 
 //////////////////////////////////////////////////////////////////////
@@ -55,26 +53,21 @@ var remove = function(animals, name)
     {
        if (animals[i].name === name)
        {
+           animals.splice(i,1);
        }
     }
-}
+};
 
 //////////////////////////////////////////////////////////////////////
 // Step 4 - Create ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 var add = function(animals, animal)
 {
-    if (animal.name !== null && animal.name.length > 0)
-    {
-        if (animal.species !== null && animal.species > 0)
-        {
-            if (search(animal.name) === null)
-            {
-                animals.push(animal);
-            }
-        }
-    }
-}
+   if (search(animals, animal.name) === null)
+   {
+       animals.push(animal);
+   }
+};
 
 
 /**
@@ -86,7 +79,7 @@ var add = function(animals, animal)
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-var search, replace, remove, add;
+//var search, replace, remove, add;
 if((typeof process !== 'undefined') &&
    (typeof process.versions.node !== 'undefined')) {
     module.exports.search = search || null;
