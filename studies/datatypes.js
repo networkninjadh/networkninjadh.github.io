@@ -1,7 +1,7 @@
 /**
  * Datatypes:
  * 
- * 0. Determine what actions you can perform on a variable
+ * 0. Datatypes determine what actions you can perform on a variable
  *
  * 1. Determine a variable's behavior 
  * 

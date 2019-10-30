@@ -40,8 +40,21 @@ let variable = 100; //variables defined with let are block scoped and therefore 
 
 //Variables can also be defined in other ways 
 //For example a constant is defined with the const keyword and cannot be modified after initialization
+//constants defined with the const keyword are block scoped just like variables defined with lets
 const x = 10; //x will always be 10
 
 const y = x; //const can be used for assignment but cannot change values itself 
 
 //x = 20; this code would return an error saying that the value cannot be modified 
+
+//Hoisting
+//When javascript compiles all of the code, all variable declarations made using var 
+//are pulled to the top of their respective scopes. This makes it possible to use a variable before it has been declared
+//However only the declaration is moved to the top, not the value
+//Example
+console.log(myName);
+var myName = "Damond Howard";
+console.log(myName);
+
+//the code above console.log(myName) will log undefined
+//however the second console.log(myName) will print out the string "Damond Howard" 

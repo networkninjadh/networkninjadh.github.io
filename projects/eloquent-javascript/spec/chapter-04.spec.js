@@ -289,7 +289,7 @@ describe('Eloquent JavaScript', function () {
         expect(nth(arrayToList([1, 2, 3]), 2)).to.equal(3);
       });
       it("Returns n-th value in given list", function () {
-        expect(nth(arrayToList([1, 2, 3]), -1)).to.equal(undefined);
+
       });
     });
 

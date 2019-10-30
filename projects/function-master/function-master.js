@@ -181,7 +181,22 @@ function isFriend(name, object) {
 
 function nonFriends(name, array) {
 //Take a name and a list of people and return a list of all the names that it is not friends with
-    
+    var newArray = [];
+    for (var i = 0; i < array.length; i++)
+    {
+     if (isFriend(name, array[i]))
+     {
+         console.log("they are friends");
+     }else if (name === array[i].name)
+     {
+         console.log("they are the same person");
+     }else
+     {
+         console.log("they are not friends add");
+         newArray.push(array[i].name);
+     }
+    }
+    return newArray;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -199,7 +214,16 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
-
+    for (var i = 0; i < array.length; i++)
+    {
+        for (var key in object)
+        {
+            if (key === array[i])
+            {
+                delete object[key];
+            }
+        }
+    }
 }
 
 //////////////////////////////////////////////////////////////////////

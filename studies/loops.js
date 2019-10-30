@@ -1,6 +1,8 @@
 /**
  * Loops:
- * There are several types of loops that you can use in javascript
+ * Loops are programming constructs that allow you to repeat a block of code
+ * a set amount of times according to some conditional statement
+ * here are several types of loops that you can use in javascript
  * 
  * 0. Loops are used to perform actions more than once
  * 
@@ -11,11 +13,35 @@
 
 
 //For loops
+//For loops take a start value a condition and the a counter in which to increment 
+//as the loop gets executed
+/**
+ * Syntax:
+ * for (start; condition; increment)
+ * {
+ *  code block to be executed    
+ * }
+ * 
+ **/
+ //Example
 for(var i = 0;i < 100;i++)
 {
     console.log(i); //this for loop prints the numbers 0 to 100 to the console
 }
 //While loops
+//While loops consist of the while keyword followed by open parenthesis where the 
+//conditional statement is then close parenthesis next is a code block 
+//begining with "{" and ending with "}" all code in between these curly brackets
+//is executed for every iteration of the loop the while loop finishes when the condition 
+//is no longer true
+//Syntax:
+/**
+ * while(condition)
+ * {
+ *  code to be executed    
+ * }
+ **/
+ //Example
 var x = 100;
 while (x > 0)
 {
@@ -23,6 +49,8 @@ while (x > 0)
     x--;
 }
 //do while loops
+//do while loops are written using the do key word followed by open and close curly braces
+//following the curly braces is the while keyword followed by open 
 x = 10;
 do 
 {
