@@ -200,15 +200,17 @@ _.indexOf = function(array, value)
 * Examples:
 *   _.contains([1,"two", 3.14], "two") -> true
 */
-////////////////////////////////////////////////////////////////////////////////// Fix this later
 _.contains = function(array, value)
 {
-    for (var i = 0; i < array.length; i++)
+    /*
+    for (var i = 0; i < array.length; i++) 
     {
         if (array[i] === value)
             return true;
     }
     return false;
+    */
+    return  (array.includes(value) ? true : false);
 }
 
 
@@ -233,13 +235,13 @@ _.each = function(collection, func)
     {
      for (var i = 0; i < collection.length; i++)
      {
-         func(collection[i], i, collection);
+          func(collection[i], i, collection);
      }
     }else
     {
             for (var key in collection)
             {
-                func(collection[key], key, collection);
+                 func(collection[key], key, collection);
             }
         
     }
@@ -257,23 +259,10 @@ _.each = function(collection, func)
                  
 _.unique = function(array)
 {
-    /*
     var retArray = [];
     for (var i = 0; i < array.length; i++)
     {
-       if (_.indexOf(array,array[i]) !== -1)
-       {
-            retArray.push( array[_.indexOf(array,array[i])]);
-       }           
-    }
-    console.log(array);
-    console.log(retArray);
-    return retArray;*/
-    
-    var retArray = [];
-    for (var i = 0; i < array.length; i++)
-    {
-        if (!retArray.includes(array[i]))
+        if (!retArray.includes(array[_.indexOf(array, array[i])]))
         {
             retArray.push(array[i]);
         }
@@ -282,7 +271,8 @@ _.unique = function(array)
 }
 /** _.filter
 * Arguments:
-*   1) An array
+*   1) An array    console.log(results);
+
 *   2) A function
 * Objectives:
 *   1) call <function> for each element in <array> passing the arguments:
@@ -293,23 +283,20 @@ _.unique = function(array)
 * Examples:
 *   _.filter([1,2,3,4,5], function(x){return x%2 === 0}) -> [2,4]
 * Extra Credit:
-*   use _.each in your implementation
+*   use _.each in your implementation 
 */
 _.filter = function(array, func)
 {
     var retArray = [];
-    
-    for (var i = 0; i < array.length; i++)
-    {
-        if (func(array[i], i, array))
-        {
-            retArray.push(array[i]);
-        }
-    }
-    console.log(retArray);
+        _.each(array, function(ele, i, arr){
+            if (func(ele, i, arr))
+            {
+                retArray.push(ele);
+            }
+        });
     return retArray;
+    
 }
-
 
 /** _.reject
 * Arguments:
@@ -421,17 +408,12 @@ _.map = function(collection, func)
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
+
 _.pluck = function(objArray, property)
 {
-    var retArray = [];
-    
-    for (var i = 0; i < objArray.length; i++)
-    {
-        //retArray.push(_.map(objArray[i]), function(){} ); //objArray[i][property]
-        retArray.push(objArray[i][property]);
-    }
-    
-    return retArray;
+    return _.map(objArray, function(object, i, collection){
+        return object[property];
+    });
 }
 
 
@@ -457,7 +439,39 @@ _.pluck = function(objArray, property)
 */
 _.every = function(collection, func)
 {
+    var results = [];
+    if (func === undefined)
+    {
+        for (var i = 0; i < collection.length; i++)
+        {
+            if (collection[i] === undefined || collection[i] === null )
+                return false;
+        }
+        return true;
+    }
     
+    if (Array.isArray(collection))
+    {   for (var i = 0; i < collection.length; i++)
+        {
+            results.push(func(collection[i], i, collection) === true);
+        }
+    }
+    else  //it is a normal object
+    {   
+        for (var key in collection)
+        {
+            results.push(func(collection[key], key, collection));
+        }
+    }
+    //check to see if all values are true or false;
+    for (var i = 0; i < results.length; i++)
+    {
+        if (results[i] === false)
+        {
+            return false;
+        }
+    }
+    return true;
 }
 
 /** _.some
@@ -482,7 +496,40 @@ _.every = function(collection, func)
 */
 _.some = function(collection, func)
 {
-    
+    var results = [];
+    if (func === undefined)
+    {
+        for (var i = 0; i < collection.length; i++)
+        {
+            if (collection[i])
+            {
+                return true;
+            }
+        }
+        return false; 
+    }
+    if (Array.isArray(collection))
+    {
+              for (var i = 0; i < collection.length; i++)
+              {
+                  results.push(func(collection[i], i, collection));
+              }
+    }else //its an object
+    {
+        for (var key in collection)
+        {
+            results.push(func(collection[key], key, collection));
+        }
+    }
+    //Loop through the array to return the appropriate results
+    for (var i = 0; i < results.length; i++)
+    {
+        if (results[i] === true)
+        {
+            return true;
+        }
+    }
+    return false;
 }
 
 /** _.reduce
@@ -505,7 +552,50 @@ _.some = function(collection, func)
 */
 _.reduce = function(array, func, seed)
 {
-    
+   console.log(array);
+   console.log(func);
+   console.log(seed);
+   var retValue;
+   
+   if (seed === undefined)
+   {
+       console.log("Seed is undefined");
+       console.log("Seed will be " + array[0]);
+       for (var i = 0; i < array.length; i++)
+       {
+           if (i === 0)
+           {
+               retValue = func(1, array[0], 0);
+               console.log("retVal1 is " + retValue );
+           }else
+           {
+               retValue = func(retValue, array[i], i);
+               console.log("retVal1 is " + retValue);
+           }
+       }
+       return retValue;
+   }
+   else //seed is defined
+   {
+       console.log("seed is defined");
+       console.log("seed is " + seed);
+       for (var i = 0; i < array.length; i++)
+       {
+           if (i === 0)
+           {
+               retValue = func(seed, array[0], 0);
+               console.log("retVal1 is " + retValue);
+
+           }else
+           {
+               retValue = func(retValue, array[i], i);
+               console.log("retVal1 is " + retValue);
+
+               
+           }
+       }
+       return retValue;
+   }
 }
 
 /** _.extend
@@ -524,7 +614,20 @@ _.reduce = function(array, func, seed)
 */
 _.extend = function (obj1, obj2, ...obj3)
 {
-    
+    //copy properties from 2 to 1
+    //if more objects copy their properties to 1 as well
+    for (var key in obj2)
+    {
+        obj1[key] = obj2[key];
+    }
+    for (var i = 0; i < obj3.length; i++)
+    {
+        for (var key in obj3[i])
+        {
+            obj1[key] = obj3[i][key];
+        }
+    }
+    return obj1;
 }
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////

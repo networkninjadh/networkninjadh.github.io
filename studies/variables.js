@@ -41,6 +41,7 @@ let variable = 100; //variables defined with let are block scoped and therefore 
 //Variables can also be defined in other ways 
 //For example a constant is defined with the const keyword and cannot be modified after initialization
 //constants defined with the const keyword are block scoped just like variables defined with lets
+//Because const variables are block scoped they are bound to the block in which they are created
 const x = 10; //x will always be 10
 
 const y = x; //const can be used for assignment but cannot change values itself 
@@ -58,3 +59,11 @@ console.log(myName);
 
 //the code above console.log(myName) will log undefined
 //however the second console.log(myName) will print out the string "Damond Howard" 
+
+//Hoisting allows us to use a variable before it has been declared
+//Example
+variable = 5; //assign 5 to variable
+
+console.log(variable);
+
+var variable; //the variable declaration gets hoisted to the top of the current scope, which is the global scope 
