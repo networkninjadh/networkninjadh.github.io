@@ -66,4 +66,4 @@ variable = 5; //assign 5 to variable
 
 console.log(variable);
 
-var variable; //the variable declaration gets hoisted to the top of the current scope, which is the global scope 
+//var variable; //the variable declaration gets hoisted to the top of the current scope, which is the global scope 

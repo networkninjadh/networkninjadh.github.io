@@ -195,4 +195,32 @@ console.log(object);
   };
 */
 
-//Just like arrays there are several operations that we can perform on objects in javascript 
+console.log("I can print out the object as a string using toString() " + object.toString());
+
+//Just like arrays there are several operations that we can perform on objects in javascript here are a few
+
+
+//The typeof operator can return the datatype for any javascript variable
+//typeof returns a string representing the datatype of any value
+//There are some things to look our for however. typeof returns object for arrays, as well as objects, Date and truthy and falsey values
+
+//Example
+var x = null;
+var y = undefined;
+var z = NaN;
+var a = {name: "Damond"};
+var b = [1,2];
+var c = 1;
+var d = "2";
+var e = true;
+
+console.log(typeof(x)); //returns type = object
+console.log(typeof(y)); //returns type = undefined
+console.log(typeof(z)); //returns type = number
+console.log(typeof(a)); //returns type = object
+console.log(typeof(b)); //returns type = object
+console.log(typeof(c)); //returns type = number
+console.log(typeof(d)); //returns type = string
+console.log(typeof(e)); //returns type = boolean
+
+

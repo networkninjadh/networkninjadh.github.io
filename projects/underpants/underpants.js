@@ -552,46 +552,33 @@ _.some = function(collection, func)
 */
 _.reduce = function(array, func, seed)
 {
-   console.log(array);
-   console.log(func);
-   console.log(seed);
    var retValue;
    
    if (seed === undefined)
    {
-       console.log("Seed is undefined");
-       console.log("Seed will be " + array[0]);
        for (var i = 0; i < array.length; i++)
        {
            if (i === 0)
            {
                retValue = func(1, array[0], 0);
-               console.log("retVal1 is " + retValue );
            }else
            {
                retValue = func(retValue, array[i], i);
-               console.log("retVal1 is " + retValue);
            }
        }
        return retValue;
    }
-   else //seed is defined
+   else 
    {
-       console.log("seed is defined");
-       console.log("seed is " + seed);
        for (var i = 0; i < array.length; i++)
        {
            if (i === 0)
            {
                retValue = func(seed, array[0], 0);
-               console.log("retVal1 is " + retValue);
 
            }else
            {
                retValue = func(retValue, array[i], i);
-               console.log("retVal1 is " + retValue);
-
-               
            }
        }
        return retValue;
