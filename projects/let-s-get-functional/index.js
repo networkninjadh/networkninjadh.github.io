@@ -3,7 +3,7 @@
 'use strict';
 
 var customers = require('./data/customers.json');
-var _ = require("lowdown-networkninjadh");
+var _ = require(/* Replace this with the name of your lodown! */);
 
 /**
  * 1. Import your lodown module using the require() method,
@@ -21,65 +21,27 @@ var _ = require("lowdown-networkninjadh");
  *    IMPORTANT: Make sure you replace <YOUR_GITHUB_FOLDER with your actual github folder name that is in your workspace.
  */
 
-var maleCount = function(array) 
-{
-    var malesArray = _.filter(array, function(customerObj, i, array){
-        if (customerObj.gender === 'male')
-            return true;
-        else
-            return false;
-    });
-    console.log(malesArray.length);
-    return malesArray.length;
+var maleCount = function(array) {
+
 };
 
+var femaleCount;
 
-var femaleCount = function(array)
-{
-    var femaleCount = _.reduce(array, function(retVal, elem, i){
-        
-    });
-};
+var oldestCustomer;
 
-var oldestCustomer = function()
-{
-    
-};
+var youngestCustomer;
 
-var youngestCustomer = function()
-{
-    
-};
+var averageBalance;
 
-var averageBalance = function()
-{
-    
-};
+var firstLetterCount;
 
-var firstLetterCount = function()
-{
-    
-};
+var friendFirstLetterCount;
 
-var friendFirstLetterCount = function()
-{
-    
-};
+var friendsCount;
 
-var friendsCount = function()
-{
-    
-};
+var topThreeTags;
 
-var topThreeTags = function()
-{
-    
-};
-
-var genderCount = function()
-{
-    
-};
+var genderCount;
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
