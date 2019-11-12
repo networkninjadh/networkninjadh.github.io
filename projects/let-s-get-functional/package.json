@@ -32,6 +32,10 @@
     "sinon": "^2.2.0"
   },
   "dependencies": {
+<<<<<<< HEAD
     "lowdown-networkninjadh": "^1.1.0"
+=======
+    "lowdown-networkninjadh": "^1.0.0"
+>>>>>>> c69cef2be351a496c6d1f5e19f70646b771c8376
   }
 }
