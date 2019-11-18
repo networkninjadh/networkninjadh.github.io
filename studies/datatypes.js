@@ -11,6 +11,7 @@
  * 2. Once you determine the data type of a variable it is best to stick with the same type of data when storing values
  *    otherwise you could get some unintended results
  */
+
 //if a variable has no datatype then it can be a truthy or a falsey value
 //for example the vaules null NaN, and undefined have no type
 var x = null; //no type
@@ -20,6 +21,8 @@ var y; //y = undefined because it hasn't been asigned a value and javascript onl
 //datatype declarations a variable's datatype is determined when you assign it a value;
 //Example:
 var num = 1; //the variable num is a number datatype
+
+//Numbers
 
 //some operations that you can perform on numbers are
 num +=1; //add 1 to the var num
@@ -32,16 +35,47 @@ console.log(num2);
 
 //In javascript the number type represents both integers and floating point numbers
 
-var word = "Hello"; //the variable word has a string datatype
+//-Infinity --- Infinity
+//Negative infinity and infinity are values that javascript uses for numbers
+//that exceed the numerical values that javascript can represent as a negative 
+//and positive number
+//When doing mathmatical calculations, -Infinity and Infinity both behave like 
+//the real values
 
+//Example:
+
+console.log(Infinity          ); /* Infinity */  
+console.log(Infinity + 1      ); /* Infinity */  
+console.log(Math.pow(10, 1000)); /* Infinity */  
+console.log(Math.log(0)       ); /* -Infinity */  
+console.log(1 / Infinity      ); /* 0 */  
+console.log(1 / 0             ); /* Infinity */ 
+
+
+//Strings
+
+//Strings are a datatype that holds a collection of characters. Strings can be of length zero in the
+//case of the empty string "" or they can hold any other value including numbers as long as they are 
+//initialized to a value that is enclosed in '', "", or ``
+var word = "Hello"; //the variable word has a string datatype
 //some operatiions that you can perform on strings are
 console.log(word);
-var bool = true; //the variable bool represents a boolean datatype
 
+//Boolean
+
+//boolean variables are values that work out to equal either true or false such as conditional statements 
+//as well as functions that return true or fasle
+var bool = true; //the variable bool represents a boolean datatype
 console.log(bool);
 //booleans variables can either be true or false
 //boolean operators
+//&& || ! == === !==
 
+//Null
+
+//Null is a value that is givin to an object to purposefully mean that the object doesn't point to anything
+//This is good for terminating nested lists  as well as seeing if there are any operations that you can 
+//perform on the data
 var hasNoValue = null; //the hasNoValue variable is of the datatype null
 console.log(hasNoValue);
 //null is a special value that doesn't belong to any of the other datatypes
@@ -50,9 +84,15 @@ var x;
 console.log(x); //this will print out undefined which means that the variable
 //x does not have a datatype
 
+//Array
+
 var array = [1, 2, 3, 4, 5]; // the array variable is of the array type
 //an array is a list datatype that allows you to store multiple values that are stored 
-//in sequence starting from 0
+//in sequence starting from 0 in order to access the value at any givin index
+//in the array you use the array name along with a pair of square
+//brackets with the index in the middle
+//Example:
+array[0] = 10; //this changes the first element of array to 10
 
 //array properties
 
@@ -84,7 +124,7 @@ function checkAdult(age)
 {
     return age >= 18;
 }
-console.log("In order to run the function for every value we pass the function into the every method() returning " + ages.every(checkAdult()));
+console.log("In order to run the function for every value we pass the function into the every method() returning " + ages.every(checkAdult));
 
 //fill() fills the elements in an array with a static value
 var fillArray = [];
@@ -174,6 +214,8 @@ console.log("We can use the unshift() method in order to add elements to the beg
 var arrayIterationObject = array.values();
 console.log(arrayIterationObject);
 
+//Object
+
 //Another very important datatype in javascript is the object datatype
 
 var object = {}; //this is a javasript object that is assigned the value of an object literal
@@ -224,3 +266,48 @@ console.log(typeof(d)); //returns type = string
 console.log(typeof(e)); //returns type = boolean
 
 
+//How is data shared between functions
+
+//Copy by Value
+//In javascript primitive data types are copied by value. This means that
+//when you make a function call and pass in parameters, any parameters that are
+//primative data types are copied into the function and act as new variables
+//that where declared within the scope of the function.
+//Example:
+var x = 110; //this is a primative data type
+function changeX(num)
+{
+  num = 0;  //num is a local variable
+  console.log(num); //num = 0
+}
+changeX(x);
+console.log(x); //x will still be 110
+
+//Copy by Reference 
+//On the other hand in javascript complex data types such as arrays and objects
+//are referenced from within the function by passing in a reference to the 
+//variable that is passed in as an argument instead of copying its values
+//into the function. This is good because it saves memory, but be aware that if
+//you change your object from within the function you change the original object as well
+//Example:
+
+var obj = {
+  name: "Damond D. Howard", 
+  age: 26,
+  hobbies: ["Programming", "Fishkeeping", "Running"]
+};
+
+function updateObj(obj)
+{
+  obj = {}; //this updates the reference of obj from whatever is passed in to the object literal
+  obj.name = "Mike"; //therefore this now has no affect on our original object
+}
+updateObj(obj); //doesn't change the object
+console.log(obj);
+
+function updateObjAgain(obj)
+{
+  obj.name = "Paul"; //This does however change the value of an element in our original object
+}
+updateObjAgain(obj); //This does change the object
+console.log(obj);

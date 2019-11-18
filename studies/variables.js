@@ -1,7 +1,7 @@
 /*
 * VARIABLES:
 *
-* 0. To hold things in memory during the life-cycle of a program, we can use variables.  Variables
+* 0. To hold things in memory during the life-cycle of a program, we can use variables. Variables
 * are named identifiers that can point to values of a particular type, like a Number, String,
 * Boolean, Array, Object or another data-type.  Variables are called so because once created, we
 * can CHANGE the value (and type of value) to which they point.
@@ -35,13 +35,13 @@ var myVariable = true;
 myVariable = "someString";
 
 //Creating a variable using the let keyword
+//variables created with let can be reasigned just like when using the var keyword
 let variable = 100; //variables defined with let are block scoped and therefore cannot be changed outside of the scope that created them
 
-
-//Variables can also be defined in other ways 
+//There are also other ways of storing information besides with a variable
 //For example a constant is defined with the const keyword and cannot be modified after initialization
 //constants defined with the const keyword are block scoped just like variables defined with lets
-//Because const variables are block scoped they are bound to the block in which they are created
+//Because constants are block scoped they are bound to the block in which they are created
 const x = 10; //x will always be 10
 
 const y = x; //const can be used for assignment but cannot change values itself 
@@ -49,10 +49,13 @@ const y = x; //const can be used for assignment but cannot change values itself
 //x = 20; this code would return an error saying that the value cannot be modified 
 
 //Hoisting
+
 //When javascript compiles all of the code, all variable declarations made using var 
 //are pulled to the top of their respective scopes. This makes it possible to use a variable before it has been declared
 //However only the declaration is moved to the top, not the value
+
 //Example
+
 console.log(myName);
 var myName = "Damond Howard";
 console.log(myName);
@@ -61,7 +64,9 @@ console.log(myName);
 //however the second console.log(myName) will print out the string "Damond Howard" 
 
 //Hoisting allows us to use a variable before it has been declared
+
 //Example
+
 variable = 5; //assign 5 to variable
 
 console.log(variable);

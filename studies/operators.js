@@ -58,7 +58,7 @@ console.log(string);
 
 console.log(1 == '1'); //non strict comparison of the number 1 and the string 1 this returns true
 
-console.log(1 === '1'); //strict comparison this returns false
+console.log(1 === '1'); //strict comparison this returns false because the string '1' is not strictly equal to the number 1
 
 console.log(1 != 1); //non strict not equal returns false
 
@@ -76,14 +76,21 @@ console.log(1 <= 2); //returns true if 1 is less than or equalto 2
 //Logical Operators like the comparison operators also allow us to modify the flow of our programs 
 //based off certain conditions here are some examples
 
-console.log(true && true); //true and true returns true
-console.log(true || false); //true or false returns true
-console.log(!false);        //not false returns true
+console.log(true && true);  //true and true returns true because as part of a larger logical expression
+                            //that returns true every element seperated by the logical and operator && 
+                            //must be true for the final statement to be true
+console.log(true || false); //true or false returns true or is kind of like and, but or only cares about one value
+                            //you only have to have one statement in a larger condition be true for the entire expression
+                            //to equal true if they are seperated by the logical or operator ||
+console.log(!false);        //not false returns true because it inverts boolean values
+                            //so if a condition eqautes to true the not operator inverts the 
+                            //value to false
 //Unary Operators
 
 //Ternary Operators
 //Ternary Operators take 3 values. The statement below allows you to test a value and determine 
 //what to do all in one line of code.
+//Syntax (condition) ? "do this if condition is true" : "do this if condition is false";
 
 var num1 = 1;
 var num2 = 2;
@@ -99,10 +106,10 @@ console.log(typeof num1); //returns 'number'
 //Bitwise operators work on the bits treating 0 as false and 1 as true
 
 var variable = 5 & 1; // 0101 & 0001 result 0001        AND
-variable = 5 | 1; // 0101 | 0001 result 0101            OR
-variable = ~0101; //this inverts the bitsto 1010        NOT
-variable = 5 ^ 1; //0101 ^ 0001 result 0100             XOR exclusive or
-variable = 5 << 1;//bitwise left shift 1010 << 1 result 1010
-variable = 5 >> 1;//bitwise right shift 0101 >> 1 result 0010
+variable = 5 | 1;     // 0101 | 0001 result 0101            OR
+variable = ~0101;     // this inverts the bits to 1010        NOT
+variable = 5 ^ 1;     // 0101 ^ 0001 result 0100             XOR exclusive or
+variable = 5 << 1;    // bitwise left shift 1010 << 1 result 1010
+variable = 5 >> 1;    // bitwise right shift 0101 >> 1 result 0010
 
 console.log(variable);

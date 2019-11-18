@@ -34,8 +34,13 @@ for(var i = 0;i < 100;i++)
 //conditional statement is then close parenthesis next is a code block 
 //begining with "{" and ending with "}" all code in between these curly brackets
 //is executed for every iteration of the loop the while loop finishes when the condition 
-//is no longer true
+//is no longer true but in order to make this true you must make use of an external incrementer
+//while loops are better however when you have a condition that updates itself, for example you 
+//can call a function as the condition and if the function returns a boolean then you don't have to 
+//worry about exiting, the function will handle it
+
 //Syntax:
+
 /**
  * while(condition)
  * {
@@ -60,7 +65,9 @@ while (x > 0)
  *   codeblock to execute  
  * } while (condition);
  **/
+ 
  //Example
+ 
 x = 10;
 do 
 {
@@ -70,13 +77,16 @@ do
 
 //For of loops
 //For of loops allow you to loop through an array without using an index variable
+
 //syntax
+
 /**
  * for (someVariable of arrayName)
  * {
  *      //operations to perform on the array 
  * }
  **/
+ 
 var cars = ["Dodge", "Toyota", "Benz"];
 for (var x of cars)
 {
@@ -85,7 +95,9 @@ for (var x of cars)
 
 //For in loops are used to iterate through objects
 //The for in loops works just like the for of loop, but for objects instead of arrays
+
 //Syntax
+
 /**
  * for (someVariable in objectName)
  * {
@@ -96,4 +108,48 @@ var person = {firstName: "Damond", lastName: "Howard", age: 26};
 for(var key in person)
 {
     console.log(person[key]); //prints out the values of the object
+    console.log(key); //prints every key in the object
 }
+
+
+// When itterating through an array it can be done forward by starting at zero and incrementing a counter
+//variable until you have reach the end of the array, but you can also start at the last element
+//in the array and decrement the value of the counter until you have reached the first element in the array
+
+//Example with for loops
+
+var myArray = [1, 2, 3, 4, 5];
+for (var i = 0; i < myArray.length; i++)
+{
+    console.log(myArray[i]); //This loop prints the numbers 1 2 3 4 5
+}
+
+//Now lets go in reverse
+
+for (var i = myArray.length - 1; i >= 0; i--)
+{
+    console.log(myArray[i]); //This loop prints the numbers 5 4 3 2 1
+}
+
+//Make sure you are carefull though, because if you where to increment or decrement in the 
+//wrong place, you could end up creating a loop that goes on forever.
+
+//Examples of loops that never end
+
+/*
+
+for (var i = 0; i < 100; i--)
+{
+    console.log("This will never end");
+}
+
+while(true)
+{
+    console.log("This will never stop");
+}
+
+for(;;)   //nicknamed the forever loop
+{
+    console.log("This wont ever end either")
+}
+*/

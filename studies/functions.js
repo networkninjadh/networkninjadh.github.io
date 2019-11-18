@@ -23,6 +23,11 @@
  * }
  * 
  **/
+ 
+//When functions are created the values that they take in are called parameters.
+//However when a function is invoked at runtime the values that you pass into a function
+//call are called arguments of that function
+
 //Examples:
 //Assigning a function to a variable
 var func1 = function(string) //this function takes one parameter named string this function is also assigned to a function variable
@@ -104,3 +109,4 @@ function outter(value)
 
 var add2 = outter(2); //creates a new function based off the inner function and returns it
 console.log(add2(10)); //outputs 12
+
