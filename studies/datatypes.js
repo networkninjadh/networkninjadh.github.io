@@ -60,6 +60,15 @@ console.log(1 / 0             ); /* Infinity */
 var word = "Hello"; //the variable word has a string datatype
 //some operatiions that you can perform on strings are
 console.log(word);
+//we can also make use of the member function charAt() in order to access a particular char of a string
+//The chars in a string are indexed 0 to length - 1 just like arrays and this can be used to print 
+//the values in a string like an array
+//Example
+var name = "Damond";
+for (var i = 0; i < 7; i++)
+{
+  console.log(name.charAt(i)); // prints the variable name to the console one char at a time
+}
 
 //Boolean
 
