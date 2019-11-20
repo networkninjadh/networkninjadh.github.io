@@ -63,7 +63,9 @@ console.log(word);
 //we can also make use of the member function charAt() in order to access a particular char of a string
 //The chars in a string are indexed 0 to length - 1 just like arrays and this can be used to print 
 //the values in a string like an array
+
 //Example
+
 var name = "Damond";
 for (var i = 0; i < 7; i++)
 {
